@@ -1,0 +1,1 @@
+let smart = 0;
