@@ -1,0 +1,89 @@
+/* styles.css */
+
+/* Reset default margin and padding for all elements */
+body, h1, h2, h3, h4, h5, h6, p, ul, li, form, input, button {
+    margin: 0;
+    padding: 0;
+  }
+  
+  /* Set default font family, size, and color */
+  body {
+    font-family: Arial, sans-serif;
+    font-size: 16px;
+    color: #333;
+  }
+  
+  /* Header styles */
+  header {
+    background-color: #f8f8f8;
+    padding: 10px;
+  }
+  
+  nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  nav img {
+    height: 200px;
+    margin-right: 10px;
+  }
+  
+  nav ul {
+    list-style-type: none;
+    display: flex;
+  }
+  
+  nav li {
+    margin-right: 10px;
+  }
+  
+  nav a {
+    text-decoration: none;
+    color: #333;
+  }
+  
+  /* Main content styles */
+  main {
+    padding: 20px;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    margin-bottom: 10px;
+  }
+  
+  form {
+    margin-bottom: 20px;
+  }
+  
+  input[type="text"], select {
+    display: block;
+    margin-bottom: 10px;
+    width: 100%;
+    padding: 5px;
+  }
+  
+  input[type="submit"], button {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+  }
+  
+  input[type="submit"]:hover, button:hover {
+    background-color: #0056b3;
+  }
+  
+  #plantResult {
+    margin-top: 20px;
+  }
+  
+  /* Footer styles */
+  footer {
+    background-color: #f8f8f8;
+    padding: 10px;
+    text-align: center;
+  }
+  
