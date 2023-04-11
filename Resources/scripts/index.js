@@ -1,15 +1,31 @@
-document.getElementById("gardenForm").addEventListener("submit", function(event) {
-  event.preventDefault(); // Prevent form submission
-
-  // Get the form data and do something with it
-  var gardenSize = document.getElementById("gardenSize").value;
-  var sunExposure = document.getElementById("sunExposure").value;
-  // Add more form field data as needed
-
-  // TODO: Process the form data and display recommended plant
-});
-
-// Clear modal form fields when modal is closed
-$('#exampleModal').on('hidden.bs.modal', function() {
-  $('#gardenForm').trigger("reset");
-});
+function getFlowers() {
+    const allSongsApiUrl = "https://localhost:7188/api/plants";
+  
+    fetch(allSongsApiUrl)
+      .then(function (response) {
+        return response.json();
+      })
+      .then(function (json) {
+        let html = "<ul>";
+        json.forEach((song) => {
+          if (!song.deleted) { //only display songs that haven't been deleted
+            html +=
+              "<li>" +
+              song.title +
+              " by " +
+              song.artist +
+              `${song.favorited ? " <b><i>---Favorited---</i></b>" : ""}` +
+              `<button type="button" onclick='handleFavorite(${song.songID})'>Toggle Favorite</button>` +
+              `<button type="button" onclick='handleDelete(${song.songID})'>Delete</button>` +
+              `<button type="button" onclick='displaySongEditForm(${song.songID})'>Edit</button>` +
+              "</li>";
+          }
+        });
+        html += "</ul>";
+        console.log(html);
+        document.getElementById("songs").innerHTML = html;
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+  }
