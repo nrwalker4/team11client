@@ -15,7 +15,7 @@ body, h1, h2, h3, h4, h5, h6, p, ul, li, form, input, button {
   
   /* Header styles */
   header {
-    background-color: #f8f8f8;
+    background-color: #3a95345a;
     padding: 10px;
   }
   
@@ -26,7 +26,7 @@ body, h1, h2, h3, h4, h5, h6, p, ul, li, form, input, button {
   }
   
   nav img {
-    height: 200px;
+    height: 100px;
     margin-right: 10px;
   }
   
@@ -83,6 +83,64 @@ body, h1, h2, h3, h4, h5, h6, p, ul, li, form, input, button {
   /* Footer styles */
   footer {
     background-color: #f8f8f8;
+    padding: 10px;
+    text-align: center;
+  }
+  /* Style the container for the plant information cards */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  
+  /* Style the heading for the plant information cards */
+  h1 {
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
+  
+  /* Style the row for the plant information cards */
+  .row {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
+  
+  /* Style the columns for the plant information cards */
+  .col-md-4 {
+    flex-basis: calc(33.33% - 20px);
+    margin-bottom: 20px;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 4px;
+  }
+  
+  /* Style the heading for each plant information card */
+  h3 {
+    font-size: 18px;
+    margin-bottom: 10px;
+  }
+  
+  /* Style the description for each plant information card */
+  p {
+    font-size: 14px;
+    margin-bottom: 15px;
+  }
+  
+  /* Style the button for each plant information card */
+  .btn {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #22501dde;
+    color: #fff;
+    text-decoration: none;
+    font-size: 14px;
+    border-radius: 4px;
+  }
+  
+  /* Style the footer */
+  footer {
+    background-color:#3a95345a;
+    color: #fff;
     padding: 10px;
     text-align: center;
   }
