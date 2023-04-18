@@ -1,6 +1,10 @@
+function handleOnLoad() {
+  getFlowers();
+}
+
 function getFlowers() {
     const allFlowersApiUrl = "https://localhost:5138/team11api/api/plants/flowers";
-  
+    res.json()
     fetch(allFlowersApiUrl)
       .then(function (response) {
         return response.json();
