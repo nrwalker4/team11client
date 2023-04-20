@@ -144,4 +144,40 @@ body, h1, h2, h3, h4, h5, h6, p, ul, li, form, input, button {
     padding: 10px;
     text-align: center;
   }
+
+  /* CSS for plant container */
+.container {
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+  margin-top: 20px;
+  padding: 20px;
+}
+
+/* CSS for plant image */
+#plants-row img {
+  display: block;
+  margin: 0 auto;
+  width: 200px;
+  height: 200px;
+  object-fit: cover;
+}
+
+/* CSS for plant row */
+#plants-row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: stretch;
+}
+
+@media (max-width: 768px) {
+  #plants-row {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+
   
