@@ -1,5 +1,7 @@
 // plants.js
 
+let plants = fetchPlants()
+
 // Function to fetch plant data from the database
 async function fetchPlants() {
     try {
@@ -13,6 +15,7 @@ async function fetchPlants() {
   
   // Function to render plants on the webpage
   function renderPlants(plants) {
+    console.log(plants)
     const plantsContainer = document.getElementById('plants-row'); // Replace with the ID of the container element on your webpage where you want to display the plants
     plantsContainer.innerHTML = '';
   
@@ -20,8 +23,8 @@ async function fetchPlants() {
       const plantElement = document.createElement('div');
       plantElement.className = 'plant';
       plantElement.innerHTML = `
-        <img src="${plant.image}" alt="${plant.name}">
-        <h3>${plant.name}</h3>
+        <img src="${plant.imageLink}" alt="${plant.plantName}">
+        <h3>${plant.plantName}</h3>
         <p>${plant.price}</p>
         <button onclick="addToCart(${plant.id})">Add to Cart</button>
       `;
