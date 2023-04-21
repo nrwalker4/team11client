@@ -25,29 +25,48 @@ async function fetchPlants() {
       plantElement.innerHTML = `
         <img src="${plant.imageLink}" alt="${plant.plantName}">
         <h3>${plant.plantName}</h3>
-        <p>${plant.price}</p>
-        <button onclick="addToCart(${plant.id})">Add to Cart</button>
+        <p>$${plant.price}</p>
+        <button onclick='addToCart(${plant})'>Add to Cart</button>
       `;
       plantsContainer.appendChild(plantElement);
     });
   }
   
   // Function to add a plant to the cart
-  function addToCart(plantId) {
+  function addToCart(plant) {
     const cart = JSON.parse(localStorage.getItem('cart')) || [];
-    const plant = { id: plantId, quantity: 1 };
   
     // Check if plant already exists in cart
-    const existingPlant = cart.find(item => item.id === plantId);
+    const existingPlant = cart.find(item => item.id === plant.id);
     if (existingPlant) {
       existingPlant.quantity += 1;
     } else {
+      plant.quantity = 1;
       cart.push(plant);
     }
   
     localStorage.setItem('cart', JSON.stringify(cart));
     updateCartTab();
   }
+  
+
+  function handleAddToCartClick(plant) {
+    // Add the item to the cart
+    cart.push(plant);
+  
+    // Update the cart element to display the current items in the cart
+    const cartElement = document.getElementById('cart');
+    cartElement.innerText = '';
+  
+    // Loop through each item in the cart and add it to the cart element
+    for (let i = 0; i < cart.length; i++) {
+      const item = cart[i];
+      cartElement.innerText += `
+        ${item.plantName} - $${item.plantPrice} - Quantity: ${item.plantQuantity}
+      `;
+    }
+  }
+  
   
   // Function to update the cart tab
   function updateCartTab() {
@@ -78,10 +97,10 @@ async function fetchPlants() {
       const cartElement = document.createElement('div');
       cartElement.className = 'cart-item';
       cartElement.innerHTML = `
-        <h3>${item.name}</h3>
-        <p>${item.price}</p>
-        <p>Quantity: ${item.quantity}</p>
-        <button onclick="removeFromCart(${item.id})">Remove</button>
+        <h3>${item.plantName}</h3>
+        <p>${item.plantPrice}</p>
+        <p>Quantity: ${item.plantQuantity}</p>
+        <button onclick=$'{removeFromCart(${item.id})}'>Remove</button>
       `;
       cartContainer.appendChild(cartElement);
     });
