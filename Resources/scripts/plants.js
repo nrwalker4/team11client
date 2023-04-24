@@ -2,6 +2,7 @@
 
 let plants = fetchPlants()
 
+
 // Function to fetch plant data from the database
 async function fetchPlants() {
     try {
@@ -37,7 +38,7 @@ async function fetchPlants() {
     const cart = JSON.parse(localStorage.getItem('cart')) || [];
   
     // Check if plant already exists in cart
-    const existingPlant = cart.find(item => item.id === plant.id);
+    const existingPlant = cart.find(item => item.id === plantID);
     if (existingPlant) {
       existingPlant.quantity += 1;
     } else {
@@ -84,7 +85,9 @@ async function fetchPlants() {
   // Fetch plants data and render on webpage on page load
   window.addEventListener('DOMContentLoaded', async () => { // Changed 'load' to 'DOMContentLoaded' event for better performance
     const plants = await fetchPlants();
+    const tools = await fetchTools();
     renderPlants(plants);
+    renderTools(tools);
     updateCartTab();
   });
   
@@ -133,7 +136,7 @@ async function fetchPlants() {
     };
   
     try {
-      const response = await fetch('https://localhost:5138/api/order', options); // Replace with your API endpoint for submitting an order
+      const response = await fetch('http://localhost:5138/api/order', options); // Replace with your API endpoint for submitting an order
       const data = await response.json();
       localStorage.removeItem('cart');
       displayCart();
@@ -157,6 +160,39 @@ async function fetchPlants() {
     updateCartTab();
     displayTotalPrice();
   });
+  
+  //TOOLS --------------------------------------------
+  let tools = fetchTools()
+
+// Function to fetch tool data from the database
+  async function fetchTools() {
+    try {
+      const response = await fetch("http://localhost:5138/api/tool"); // Replace with your API endpoint for fetching plant data
+      const data = await response.json();
+      return data;
+    } catch (error) {
+      console.error('Error fetching tools:', error);
+    }
+  }
+  
+  // Function to render tools on the webpage
+  function renderTools(tools) {
+    console.log(tools)
+    const toolsContainer = document.getElementById('tools-row'); // Replace with the ID of the container element on your webpage where you want to display the plants
+    toolsContainer.innerHTML = '';
+  
+    tools.forEach(tool => {
+      const toolElement = document.createElement('div');
+      toolElement.className = 'tool';
+      toolElement.innerHTML = `
+        <img src="${tool.imageLink}" alt="${tool.toolName}">
+        <h3>${tool.toolName}</h3>
+        <p>$${tool.price}</p>
+        <button onclick='addToCart(${tool})'>Add to Cart</button>
+      `;
+      toolsContainer.appendChild(toolElement);
+    });
+  }
   
   
   

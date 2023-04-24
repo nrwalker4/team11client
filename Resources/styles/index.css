@@ -2,10 +2,9 @@
 
 /* Reset default margin and padding for all elements */
 body, h1, h2, h3, h4, h5, h6, p, ul, li, form, input, button {
-    margin: 0;
-    padding: 0;
+    margin: 5px;
+    padding: 5px;
   }
-  
   /* Set default font family, size, and color */
   body {
     font-family: Arial, sans-serif;
@@ -42,6 +41,19 @@ body, h1, h2, h3, h4, h5, h6, p, ul, li, form, input, button {
   nav a {
     text-decoration: none;
     color: #333;
+    font-size: larger;
+    background-color: whitesmoke;
+    padding: 10px;
+    display: flex;
+    border-radius: 4px;
+
+
+    
+  }
+  nav a:hover {
+    background-color:darkolivegreen;
+    color: #fff;
+        
   }
   
   /* Main content styles */
@@ -50,7 +62,22 @@ body, h1, h2, h3, h4, h5, h6, p, ul, li, form, input, button {
   }
   
   h1, h2, h3, h4, h5, h6 {
-    margin-bottom: 10px;
+    margin-bottom: 30px;
+  }
+
+  ul{
+    list-style-type: none;
+  }
+  li{
+    list-style-type: none;
+  }
+  h5 {
+    font-size: 50px;
+    margin-bottom: 20px;
+    text-shadow: 1px 1px 0 whitesmoke,
+               -1px -1px 0 whitesmoke,
+               1px -1px 0 whitesmoke,
+               -1px 1px 0 whitesmoke
   }
   
   form {
@@ -65,15 +92,16 @@ body, h1, h2, h3, h4, h5, h6, p, ul, li, form, input, button {
   }
   
   input[type="submit"], button {
-    background-color: #007bff;
+    background-color: darkolivegreen;
     color: #fff;
-    border: none;
     padding: 10px;
     cursor: pointer;
+    border-radius: 4px;
   }
   
   input[type="submit"]:hover, button:hover {
-    background-color: #0056b3;
+    background-color: rgba(85, 107, 47, 0.285);
+    color: #fff;
   }
   
   #plantResult {
@@ -118,6 +146,27 @@ body, h1, h2, h3, h4, h5, h6, p, ul, li, form, input, button {
   h3 {
     font-size: 18px;
     margin-bottom: 10px;
+    
+  }
+
+  h4 {
+    font-size: 18px;
+    margin-bottom: 10px;
+    background-color: #3a95345a;
+    border-color: darkolivegreen;
+    border-style: solid;
+    border-width: medium;
+
+  }
+
+  a{
+    text-decoration: none;
+    color: whitesmoke;
+    font-size: 18px;
+    background-color:  #3a95345a;
+    padding: 10px;
+    display: flex;
+    border-radius: 4px;
   }
   
   /* Style the description for each plant information card */
@@ -162,6 +211,9 @@ body, h1, h2, h3, h4, h5, h6, p, ul, li, form, input, button {
   width: 200px;
   height: 200px;
   object-fit: cover;
+  border-color: darkolivegreen;
+  border-style: solid;
+  border-width: medium;
 }
 
 /* CSS for plant row */
@@ -180,6 +232,32 @@ body, h1, h2, h3, h4, h5, h6, p, ul, li, form, input, button {
   }
 }
 
+#tools-row img {
+  display: block;
+  margin: 0 auto;
+  width: 200px;
+  height: 200px;
+  object-fit: cover;
+}
+
+#tools-row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: stretch;
+  gap: 40px;
+}
+
+@media (min-width: 768px) {
+  #tools-row .container {
+    flex-basis: calc(25% - 20px);
+    margin-right: 20px;
+  }
+}
+
+
+
+  
 
 
   
