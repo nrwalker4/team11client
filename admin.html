@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Smart Gardening Association</title>
+  <link rel="stylesheet" href="./resources/styles/index.css">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+  <header>
+    <nav>
+      <img src="./Resources/logo/Green Circle Nature Farm Organic Leaf Garden Landscaping Logo (3).png" alt="Smart Gardening Association"></img>
+      <h1>Smart Gardening Association</h1>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="info.html">Product Info</a></li>
+        <li><a href="form.html">Plant Finder</a></li>
+        <li><a href="shop.html">Shop</a></li>
+        <li><a href="admin.html">Admin Login</a></li>
+      </ul>
+    </nav>
+  </header>
+<body>
+    <div class="manager-tab" style="display: none;">
+        <!-- Manager information goes here -->
+      </div>
+      
+      <div class="login-form">
+        <input type="text" id="username" placeholder="Username">
+        <input type="password" id="password" placeholder="Password">
+
+        <button onclick="login()">Login</button>
+      </div>
+      <div id="manager-page" style="display:none;">
+<!-- <head>
+	<title>Plant Manager</title>
+</head> -->
+	<h1>Plant Manager</h1>
+	<table>
+		<thead>
+			<tr>
+				<th>Plant Name</th>
+				<th>Image</th>
+				<th>Description</th>
+				<th>Quantity</th>
+				<th>Actions</th>
+			</tr>
+		</thead>
+		<tbody>
+			<!-- Loop through each plant and display its data in a row -->
+			{{#each plants}}
+			<tr>
+				<td>
+					<input type="text" name="name" value="{{this.name}}">
+				</td>
+				<td>
+					<img src="${plant.ImageLink}" alt="${plant.plantName}">
+                    <h3>${plant.plantName}</h3>
+                    <p>$${plant.price}</p>
+					<input type="file" name="image">
+				</td>
+				<td>
+					<textarea name="description">{{this.description}}</textarea>
+				</td>
+				<td>
+					<input type="number" name="quantity" value="{{this.quantity}}">
+				</td>
+				<td>
+					<button type="submit">Save</button>
+					<button type="button">Delete</button>
+				</td>
+			</tr>
+			{{/each}}
+		</tbody>
+	</table>
+	<!-- Add a form to add a new plant -->
+	<form method="POST" action="/add-plant">
+		<h2>Add New Plant</h2>
+		<label for="name">Plant Name</label>
+		<input type="text" name="name" required>
+		<label for="image">Image</label>
+		<input type="file" name="image" required>
+		<label for="description">Description</label>
+		<textarea name="description" required></textarea>
+		<label for="quantity">Quantity</label>
+		<input type="number" name="quantity" required>
+		<button type="submit">Add Plant</button>
+	</form>
+    <script src="./Resources/scripts/admin.js"></script>
+</body>
+</html>
