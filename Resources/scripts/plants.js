@@ -15,23 +15,43 @@ async function fetchPlants() {
   }
   
   // Function to render plants on the webpage
+  // function renderPlants(plants) {
+  //   console.log(plants)
+  //   const plantsContainer = document.getElementById('plants-row'); // Replace with the ID of the container element on your webpage where you want to display the plants
+  //   plantsContainer.innerHTML = '';
+  
+  //   plants.forEach(plant => {
+  //     const plantElement = document.createElement('div');
+  //     plantElement.className = 'plant';
+  //     plantElement.innerHTML = `
+  //       <img src="${plant.imageLink}" alt="${plant.plantName}">
+  //       <h3>${plant.plantName}</h3>
+  //       <p>$${plant.price}</p>
+  //       <button onclick='addToCart(${plant})'>Add to Cart</button>
+  //     `;
+  //     plantsContainer.appendChild(plantElement);
+  //   });
+  // }
   function renderPlants(plants) {
     console.log(plants)
-    const plantsContainer = document.getElementById('plants-row'); // Replace with the ID of the container element on your webpage where you want to display the plants
+    const plantsContainer = document.getElementById('info-row'); // Replace with the ID of the container element on your webpage where you want to display the plants
     plantsContainer.innerHTML = '';
   
     plants.forEach(plant => {
       const plantElement = document.createElement('div');
-      plantElement.className = 'plant';
+      plantElement.className = 'info';
+      plantElement.style.backgroundImage = `url(${plant.imageLink})`;
       plantElement.innerHTML = `
-        <img src="${plant.imageLink}" alt="${plant.plantName}">
-        <h3>${plant.plantName}</h3>
-        <p>$${plant.price}</p>
-        <button onclick='addToCart(${plant})'>Add to Cart</button>
+        <div class="text-wrapper">
+          <h3>${plant.plantName}</h3>
+          <p>${plant.description}</p>
+          <a href="${plant.externalLink}" target="_blank">Read More</a>
+        </div>
       `;
       plantsContainer.appendChild(plantElement);
     });
   }
+  
   
   // Function to add a plant to the cart
   function addToCart(plant) {
@@ -194,5 +214,19 @@ async function fetchPlants() {
     });
   }
   
-  
-  
+//------------------PLANT INFO PAGE-------------------
+// function renderPlants(plants) {
+//   console.log(plants)
+//   const plantsContainer = document.getElementById('info-row'); // Replace with the ID of the container element on your webpage where you want to display the plants
+//   plantsContainer.innerHTML = '';
+
+//   plants.forEach(plant => {
+//     const plantElement = document.createElement('div');
+//     plantElement.className = 'info';
+//     plantElement.innerHTML = `
+//       <img src="${plant.imageLink}" alt="${plant.plantName}">
+//       <h3>${plant.plantName}</h3>
+//     `;
+//     plantsContainer.appendChild(plantElement);
+//   });
+// }
