@@ -137,3 +137,5 @@ async function displayPlantEditForm(id) {
   
     document.getElementById("editPlantForm").innerHTML = "";
   }
+
+
