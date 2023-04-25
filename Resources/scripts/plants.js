@@ -27,7 +27,7 @@ async function fetchPlants() {
         <img src="${plant.imageLink}" alt="${plant.plantName}">
         <h3>${plant.plantName}</h3>
         <p>$${plant.price}</p>
-        <button onclick='addToCart(${plant})'>Add to Cart</button>
+        <button onclick='addToCart(${plant})' class="btn">Add to Cart</button>
       `;
       plantsContainer.appendChild(plantElement);
     });
@@ -189,7 +189,7 @@ async function fetchPlants() {
         <img src="${tool.imageLink}" alt="${tool.toolName}">
         <h3>${tool.toolName}</h3>
         <p>$${tool.price}</p>
-        <button onclick='addToCart(${tool})'>Add to Cart</button>
+        <button onclick='addToCart(${tool})' class="btn">Add to Cart</button>
       `;
       toolsContainer.appendChild(toolElement);
     });

@@ -294,6 +294,17 @@ body, h1, h2, h3, h4, h5, h6, p, ul, li, form, input, button {
   max-height: 500px; /* adjust the height as needed */
   margin: 0 auto;
 }
+.logo img,
+.logo h1 {
+  display: inline-block;
+  vertical-align: middle;
+  height: 100px;
+  margin-right: 10px;
+  font-size: 35pt;
+  color: darkolivegreen;
+  outline: #333;
+}
+
 
 
 

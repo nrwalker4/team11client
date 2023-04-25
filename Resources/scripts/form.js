@@ -38,7 +38,12 @@ async function matchPlant(){
                 recommendationsDiv.innerHTML = `<p>Recommended Plant: No plant recommendation found</p>`;
             }
             else{
-                recommendationsDiv.innerHTML = `<p>Recommended Plant: ${recommendedPlant.plantName}</p>`;
+                recommendationsDiv.innerHTML = `<h1>Recommended Plant: ${recommendedPlant.plantName}</h1>
+                <p>Plant Type: ${recommendedPlant.plantType}</p>
+                <p>Description: ${recommendedPlant.description}</p>
+                <p>Average Lifespan: ${recommendedPlant.lifespan}</p>
+                <img src="${recommendedPlant.imageLink}" alt="${recommendedPlant.plantName}" style="width: 200px; height: auto;">
+                <a href="${recommendedPlant.externalLink}" target="_blank">Read More about ${recommendedPlant.plantName}</a>`;
             }
         })
     })
