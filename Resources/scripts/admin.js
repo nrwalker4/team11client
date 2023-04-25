@@ -8,9 +8,20 @@ async function login() {
         headers: {
           'Content-Type': 'application/json'
         },
-        body: JSON.stringify({ username, password })
+        // body: JSON.stringify({ username, password,  })   //add filler data so that you can passs a complete user object to the API as it is expecting in the post
+        //
+          body: {
+          username: username,
+          userPassword: password,
+          email: '',
+          firstName: '',
+          lastName: '',
+          isAdmin: false,
+          deleted: false
+        }
       });
-  
+      
+
       if (response.status === 200) {
         const data = await response.json();
         const token = data.token;
@@ -32,6 +43,9 @@ async function login() {
             }
           });
           const managerInfo = await managerQueryResponse.json();
+
+
+        
   
           // Fetch the image path from the MySQL database for each plant
         //   const plants = managerInfo.plants;
