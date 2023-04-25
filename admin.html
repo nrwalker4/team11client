@@ -2,12 +2,13 @@
 <html>
 <head>
   <title>Smart Gardening Association</title>
-  <link rel="stylesheet" href="./resources/styles/index.css">
+  <link rel="stylesheet" href="./Resources/styles/index.css">
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <script src="./Resources/scripts/admintest.js"></script>
 </head>
   <header>
     <nav>
@@ -30,13 +31,9 @@
       <div class="login-form">
         <input type="text" id="username" placeholder="Username">
         <input type="password" id="password" placeholder="Password">
-
-        <button onclick="login()">Login</button>
+        <button onclick=login()>Login</button>
       </div>
       <div id="manager-page" style="display:none;">
-<!-- <head>
-	<title>Plant Manager</title>
-</head> -->
 	<h1>Plant Manager</h1>
 	<table>
 		<thead>
@@ -53,19 +50,19 @@
 			{{#each plants}}
 			<tr>
 				<td>
-					<input type="text" name="name" value="{{this.name}}">
+					<input type="text" name="name" value="{{plant.plantName}}"">
 				</td>
 				<td>
-					<img src="${plant.ImageLink}" alt="${plant.plantName}">
-                    <h3>${plant.plantName}</h3>
+					<img src={{plant.imageLink}}>
+                    <h3>{plant.plantName}</h3>
                     <p>$${plant.price}</p>
 					<input type="file" name="image">
 				</td>
 				<td>
-					<textarea name="description">{{this.description}}</textarea>
+					<textarea name="description">{{plant.description}}</textarea>
 				</td>
 				<td>
-					<input type="number" name="quantity" value="{{this.quantity}}">
+					<input type="number" name="quantity" value="{{plant.quantity}}">
 				</td>
 				<td>
 					<button type="submit">Save</button>
@@ -88,6 +85,6 @@
 		<input type="number" name="quantity" required>
 		<button type="submit">Add Plant</button>
 	</form>
-    <script src="./Resources/scripts/admin.js"></script>
+    <script src="./Resources/scripts/admintest.js"></script>
 </body>
 </html>
