@@ -43,7 +43,7 @@ function login(){
         // Hide the login form and show the manager tab
         // document.querySelector('.login-form').style.display = 'none';
         // document.querySelector('.manager-page').style.display = 'block';
-        window.location.href
+        window.location.href = "adminpage.html"
       }
       else{
         alert('Invalid Credentials')
