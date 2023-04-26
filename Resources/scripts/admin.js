@@ -1,27 +1,29 @@
-const userURL = 'http://localhost:5138/api/User'
-const plantURL = 'http://localhost:5138/api/plant'
-const toolURL = 'http://localhost:5138/api/Tool'
+// const userURL = 'http://localhost:5138/api/User'
+// const plantURL = 'http://localhost:5138/api/plant'
+// const toolURL = 'http://localhost:5138/api/Tool'
 
 function handleOnLoad(){
   plantTable()
+  toolTable()
+  adminTable()
 }
 
 async function getUsers(){
-  let response = await fetch(userURL)
+  let response = await fetch('http://localhost:5138/api/User')
   let data = await response.json()
   console.log(data)
   return data
 }
 
 async function getPlants(){
-  let response = await fetch(plantURL)
+  let response = await fetch('http://localhost:5138/api/plant')
   let data = await response.json()
   console.log(data)
   return data
 }
 
 async function getTools(){
-  let response = await fetch(toolURL)
+  let response = await fetch('http://localhost:5138/api/Tool')
   let data = await response.json()
   console.log(data)
   return data
@@ -39,8 +41,9 @@ function login(){
 
       if (result.isAdmin = true){
         // Hide the login form and show the manager tab
-        document.querySelector('.login-form').style.display = 'none';
-        document.querySelector('.manager-tab').style.display = 'block';
+        // document.querySelector('.login-form').style.display = 'none';
+        // document.querySelector('.manager-page').style.display = 'block';
+        window.location.href
       }
       else{
         alert('Invalid Credentials')
