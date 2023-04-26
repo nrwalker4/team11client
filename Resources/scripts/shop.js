@@ -11,7 +11,6 @@ window.addEventListener('DOMContentLoaded', async () => { // Changed 'load' to '
     // updateCartTab();
 });
 
-
 async function getTools(){
     try {
       const response = await fetch(toolURL); 
@@ -193,4 +192,4 @@ function login(){
         }
         
     })
-  }
+}
