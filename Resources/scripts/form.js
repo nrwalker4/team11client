@@ -7,10 +7,10 @@ async function getPlants(){
     console.log(data)
     return data
 }
-
 async function matchPlant(){
     const form = document.getElementById('recommendation-form')
-
+    
+    
     form.addEventListener('submit', function(e) {
         e.preventDefault();
         const formData = new FormData(form);
@@ -25,6 +25,7 @@ async function matchPlant(){
 
         // Get recommended plant based on user's choices
         getPlants().then(function(plants){
+                         
             let recommendedPlant
 
             recommendedPlant = plants.find(plant => plant.soil == soil && plant.indoorOutdoor == location && plant.sunExposure == sun)
@@ -43,7 +44,8 @@ async function matchPlant(){
                 <p>Description: ${recommendedPlant.description}</p>
                 <p>Average Lifespan: ${recommendedPlant.lifespan}</p>
                 <img src="${recommendedPlant.imageLink}" alt="${recommendedPlant.plantName}" style="width: 200px; height: auto;">
-                <a href="${recommendedPlant.externalLink}" target="_blank">Read More about ${recommendedPlant.plantName}</a>`;
+                <a href="${recommendedPlant.externalLink}" target="_blank">Read More about ${recommendedPlant.plantName}</a>
+                <a href="./shop.html">Shop for ${recommendedPlant.plantName}</a>`
             }
         })
     })

@@ -1,109 +1,83 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>Smart Gardening Association</title>
-  <link rel="stylesheet" href="./resources/styles/index.css">
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-</head>
-<body>
-  <header>
-    <nav>
-      <img src="./Resources/logo/Green Circle Nature Farm Organic Leaf Garden Landscaping Logo (3).png" alt="Smart Gardening Association"></img>
-      <h1>Smart Gardening Association</h1>
-      <ul>
-        <li><a href="index.html">Home</a></li>
-        <li><a href="info.html">Product Info</a></li>
-        <li><a href="form.html">Plant Finder</a></li>
-        <li><a href="shop.html">Shop</a></li>
-        <li><a href="admin.html">Admin Login</a></li>
-      </ul>
-    </nav>
-  </header>
-  <main>
-    <h1>Get Recommended Plant</h1>
-    <body>
-
-          <form id="recommendation-form">
-      
-            <fieldset>
-      
-              <legend>Soil Type:</legend>
-      
-              <label><input type="radio" name="soil" value="sandy soil" id="s1"> Sandy</label>
-      
-              <label><input type="radio" name="soil" value="clay soil" id="s2"> Clay</label>
-      
-              <label><input type="radio" name="soil" value="loamy soil" id="s3"> Loamy</label>
-      
-              <label><input type="radio" name="soil" value="low drainage potting mix" id="s4"> Low Drainage Potting Mix</label>
-      
-              <label><input type="radio" name="soil" value="high drainage potting mix" id="s5"> High Drainage Potting Mix</label>
-      
-            </fieldset>
-      
-            <br>
-      
-            <fieldset>
-      
-              <legend>Location:</legend>
-      
-              <label><input type="radio" name="location" value="indoor" id="i"> Indoor</label>
-      
-              <label><input type="radio" name="location" value="outdoor" id="o"> Outdoor</label>
-      
-            </fieldset>
-      
-            <br>
-      
-            <fieldset>
-      
-              <legend>Sun Exposure:</legend>
-      
-              <label><input type="radio" name="sun" value="full sun"> Full Sun</label>
-      
-              <label><input type="radio" name="sun" value="partial sun"> Partial Sun</label>
-      
-              <label><input type="radio" name="sun" value="full shade"> Full Shade</label>
-      
-              <label><input type="radio" name="sun" value="low sun"> Low Sun</label>
-      
-            </fieldset>
-      
-            <br>
-      
-            <fieldset>
-      
-      <!--         <legend>Climate</legend>
-      
-              <label><input type="radio" name="climate" value="dry"> Dry </label>
-      
-              <label><input type="radio" name="climate" value="humid"> Humid </label>
-      
-            </fieldset> -->
-      
-            <br>
-      
-            <button onclick="matchPlant()" type="submit">Get Recommendations</button>
-      
-          </form>
-      
-          <div id="recommendations">
-      
-      </div>
-      
-      
-      
-      <!-- <script src="./Resources/scripts/testrex.js"></script> -->
+  <head>
+    <title>Smart Gardening Association</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="./resources/styles/index.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  </head>
+  <body>
+    <header>
+      <nav>
+        <img src="./Resources/logo/Green Circle Nature Farm Organic Leaf Garden Landscaping Logo (3).png" alt="Smart Gardening Association">
+        <h1>Smart Gardening Association</h1>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="info.html">Product Info</a></li>
+          <li><a href="form.html">Plant Finder</a></li>
+          <li><a href="shop.html">Shop</a></li>
+          <li><a href="admin.html">Admin Login</a></li>
+        </ul>
+      </nav>
+    </header>
+    <main>
+      <h1>Get Recommended Plant</h1>
+      <form id="recommendation-form">
+        <fieldset>
+          <legend>Location:</legend>
+          <label><input type="radio" name="location" value="indoor" id="i"> Indoor</label>
+          <label><input type="radio" name="location" value="outdoor" id="o"> Outdoor</label>
+        </fieldset>
+        <br>
+        <fieldset id="soil-type">
+          <legend>Soil Type:</legend>
+          <label><input type="radio" name="soil" value="sandy soil" id="s1"> Sandy</label>
+          <label><input type="radio" name="soil" value="clay soil" id="s2"> Clay</label>
+          <label><input type="radio" name="soil" value="loamy soil" id="s3"> Loamy</label>
+          <label><input type="radio" name="soil" value="low drainage potting mix" id="s4"> Low Drainage Potting Mix</label>
+          <label><input type="radio" name="soil" value="high drainage potting mix" id="s5"> High Drainage Potting Mix</label>
+        </fieldset>
+        <br>
+        <fieldset id="sun-exposure">
+          <legend>Sun Exposure:</legend>
+          <label><input type="radio" name="sun" value="full sun"> Full Sun</label>
+          <label><input type="radio" name="sun" value="partial sun"> Partial Sun</label>
+          <label><input type="radio" name="sun" value="full shade"> Full Shade</label>        </fieldset>
+        <br>
+        <button onclick="matchPlant()" type="submit">Get Recommendations</button>
+      </form>
+      <div id="recommendations"></div>
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
       <script src="./Resources/scripts/form.js"></script>
-        </body>
-  </main>
-  <footer>
+    </main> 
+    <script>
+      $(document).ready(function() {
+        $("input[name='location']").change(function() {
+          var location = $("input[name='location']:checked").val();
+          if (location == "indoor") {
+            $("#soil-type").html(`
+              <legend>Soil Type:</legend>
+              <label><input type="radio" name="soil" value="low drainage potting mix" id="s4"> Low Drainage Potting Mix</label>
+              <label><input type="radio" name="soil" value="high drainage potting mix" id="s5"> High Drainage Potting Mix</label>
+            `);
+          } else {
+            $("#soil-type").html(`
+              <legend>Soil Type:</legend>
+              <label><input type="radio" name="soil" value="sandy soil" id="s1"> Sandy</label>
+              <label><input type="radio" name="soil" value="clay soil" id="s2"> Clay</label>
+              <label><input type="radio" name="soil" value="loamy soil" id="s3"> Loamy</label>
+            `);
+          }
+        });
+      });
+    </script>
+      
+  </body>
+    <footer>
     <p>Smart Gardening Association | 1234 Main Street | Anytown, USA 12345 | 555-555-5555 | </p>
     <a href="mailto: sga@smartgardening.com"></a>
-  </footer>
-</body>
+    </footer>
 </html>
+
