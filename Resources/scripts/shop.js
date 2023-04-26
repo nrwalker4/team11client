@@ -75,7 +75,6 @@ function renderTools(tools){
     })
     let int = cart.length
     console.log(int);
-
 }
 
 function renderPlants(plants){
@@ -155,92 +154,13 @@ function clearText(){
 
 function checkout(){
     saveCart()
-
-    // let test = getCookie('Marigold')
-    // alert('Saved'+ test)
-    checkCookie()
+    clearCart()
+    window.location.href = 'checkout.html'
 }
 
 function saveCart(){
-    cart.forEach(item => {
-        let name = item.Name
-        let value = item.Quantity
-        console.log(name)
-        console.log(value)
-        setCookie(name,value)
-    })
-}
-
-function setCookie(cname,cvalue){
-    const d = new Date();
-    d.setTime(d.getTime() + (1*24*60*60*1000));
-    let expires = "expires="+ d.toUTCString();
-    document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
-    console.log(document.cookie)
+    let cartString = JSON.stringify(cart)
+    localStorage.setItem('cart',cartString)
 }
 
 
-function getCookie(cname) {
-    let name = cname + "=";
-    let decodedCookie = decodeURIComponent(document.cookie);
-    let ca = decodedCookie.split(';');
-    for(let i = 0; i <ca.length; i++) {
-        let c = ca[i];
-        while (c.charAt(0) == ' ') {
-        c = c.substring(1);
-        }
-        if (c.indexOf(name) == 0) {
-            return c.substring(name.length, c.length);
-        }
-    }
-    return "";
-}
-
-function checkCookie() {
-let name = getCookie("Marigold");
-    if (name != "") {
-     alert(`Cookie saved for ${name}`);
-    } else {
-      alert('Cookie not saved')
-    }
-}
-
-//delete a cookie
-//document.cookie = "username=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
-
-function handleOnLoad(){
-    getUsers()
-}
-  
-async function getUsers(){
-    let response = await fetch('http://localhost:5138/api/User')
-    let data = await response.json()
-    console.log(data)
-    return data
-}
-  
-function login(){
-    let username = document.getElementById('username').value
-    let password = document.getElementById('password').value
-  
-    getUsers().then(function(users){
-        const result = users.find(user => user.username === username && user.userPassword === password)
-  
-        console.log(result)
-  
-        if(result === undefined){
-            //display message on screen saying incorrect, clear the fields
-
-        }
-        else{
-
-            //hide login form and redirect to thank you page
-
-
-            // Hide the login form and show the manager tab
-            document.querySelector('.login-form').style.display = 'none';
-            // document.querySelector('.manager-tab').style.display = 'block';
-        }
-        
-    })
-}

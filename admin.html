@@ -26,7 +26,7 @@
 <body>
     <div class="manager-tab" style="display: none;">
         <!-- Manager information goes here -->
-      </div>
+    </div>
       
       <div class="login-form">
         <input type="text" id="username" placeholder="Username">
@@ -35,9 +35,17 @@
 
         <button onclick=login()>Login</button>
       </div>
+
       <div id="manager-page" style="display:none;">
-	<h1>Plant Manager</h1>
-	<table>
+		<h1>Plant Manager</h1>
+		<div id="plantTable"></div>
+		<h1>Tool Manager</h1>
+		<div id="toolTable"></div>
+		<h1>Admin Manager</h1>
+		<div id="adminTable"></div>
+	  </div>
+	  
+	<!-- <table>
 		<thead>
 			<tr>
 				<th>Plant Name</th>
@@ -47,9 +55,9 @@
 				<th>Actions</th>
 			</tr>
 		</thead>
-		<tbody>
+		<tbody> -->
 			<!-- Loop through each plant and display its data in a row -->
-			{{#each plants}}
+			<!-- {{#each plants}}
 			<tr>
 				<td>
 					<input type="text" name="name" value="{{plant.plantName}}">
@@ -73,9 +81,11 @@
 			</tr>
 			{{/each}}
 		</tbody>
-	</table>
+	</table> -->
+
+
 	<!-- Add a form to add a new plant -->
-	<form method="POST" action="/add-plant">
+	<!-- <form method="POST" action="/add-plant">
 		<h2>Add New Plant</h2>
 		<label for="name">Plant Name</label>
 		<input type="text" name="name" required>
@@ -86,7 +96,7 @@
 		<label for="quantity">Quantity</label>
 		<input type="number" name="quantity" required>
 		<button type="submit">Add Plant</button>
-	</form>
+	</form> -->
     <script src="./Resources/scripts/admin.js"></script>
 </body>
 </html>
