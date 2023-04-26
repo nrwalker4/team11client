@@ -153,9 +153,60 @@ function clearText(){
     document.getElementById('cart-container').innerHTML = ''
 }
 
-function saveCart(){
+function checkout(){
+    saveCart()
 
+    // let test = getCookie('Marigold')
+    // alert('Saved'+ test)
+    checkCookie()
 }
+
+function saveCart(){
+    cart.forEach(item => {
+        let name = item.Name
+        let value = item.Quantity
+        console.log(name)
+        console.log(value)
+        setCookie(name,value)
+    })
+}
+
+function setCookie(cname,cvalue){
+    const d = new Date();
+    d.setTime(d.getTime() + (1*24*60*60*1000));
+    let expires = "expires="+ d.toUTCString();
+    document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+    console.log(document.cookie)
+}
+
+
+function getCookie(cname) {
+    let name = cname + "=";
+    let decodedCookie = decodeURIComponent(document.cookie);
+    let ca = decodedCookie.split(';');
+    for(let i = 0; i <ca.length; i++) {
+        let c = ca[i];
+        while (c.charAt(0) == ' ') {
+        c = c.substring(1);
+        }
+        if (c.indexOf(name) == 0) {
+            return c.substring(name.length, c.length);
+        }
+    }
+    return "";
+}
+
+function checkCookie() {
+let name = getCookie("Marigold");
+    if (name != "") {
+     alert(`Cookie saved for ${name}`);
+    } else {
+      alert('Cookie not saved')
+    }
+}
+
+//delete a cookie
+//document.cookie = "username=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
 
 function handleOnLoad(){
     getUsers()
