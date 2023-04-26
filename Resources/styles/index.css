@@ -91,15 +91,16 @@ body, h1, h2, h3, h4, h5, h6, p, ul, li, form, input, button {
     padding: 5px;
   }
   
-  input[type="submit"], button {
+  input[type="submit"], button, button1 {
     background-color: darkolivegreen;
+
     color: #fff;
     padding: 10px;
     cursor: pointer;
     border-radius: 4px;
   }
   
-  input[type="submit"]:hover, button:hover {
+  input[type="submit"]:hover, button:hover, button1:hover {
     background-color: rgba(85, 107, 47, 0.285);
     color: #fff;
   }
@@ -325,6 +326,16 @@ body, h1, h2, h3, h4, h5, h6, p, ul, li, form, input, button {
   width: 200px;
   height: 200px;
   object-fit: cover;
+}
+
+button1 {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #22501dde;
+    color: #fff;
+    text-decoration: none;
+    font-size: 14px;
+    border-radius: 4px;
 }
 
   

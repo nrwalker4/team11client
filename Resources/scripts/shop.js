@@ -50,7 +50,7 @@ function renderTools(tools){
         let price = document.createElement('p')
             price.innerHTML = '$' + tool.price
 
-        let button = document.createElement('button')
+        let button = document.createElement('button1')
             button.innerHTML = 'Add to Cart'
             button.addEventListener('click',function(){
                 console.log('inside add to cart')
@@ -97,7 +97,7 @@ function renderPlants(plants){
         let price = document.createElement('p')
             price.innerHTML = '$' + plant.price
 
-        let button = document.createElement('button')
+        let button = document.createElement('button1')
             button.innerHTML = 'Add to Cart'
             button.addEventListener('click',function(){
                 console.log('inside add to cart')
