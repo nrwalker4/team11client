@@ -12,8 +12,8 @@ const postOrderURL = ''
 window.addEventListener('DOMContentLoaded', async () => {
     const plants = await getPlants()
     const tools = await getTools()
-    const orders =
     makeOLI(plants,tools)
+    saveOLIs()
 })
 
 function getCart(){
@@ -76,8 +76,9 @@ function login(){
         }
         else{
             //save user to local storage
-            let userInfo = JSON.stringify({Username: username, Password: password})
+            let userInfo = JSON.stringify(username)
             localStorage.setItem('userInfo',userInfo)
+            // console.log(localStorage.getItem)
 
             //generate order and add
             let newDate = getOrderDate()
@@ -88,22 +89,22 @@ function login(){
             }
             handleOrderPost(order)
 
-            //generate OLIs and add
-            getOrders().then(function(orders){
-                OLIs.forEach(OLI =>{
-                    let orderID 
-                    if(orders.length > 0)
-                    {
-                        orderID = orders[orders.length-1].orderId
-                    }
-                    else{
-                        orderID = 1
-                    }
-                    OLI.orderId = orderID
-                    console.log(OLI.orderId)
-                    handleOLIPost(OLI)
-                })
-            })
+            // //generate OLIs and add
+            // getOrders().then(function(orders){
+            //     OLIs.forEach(OLI =>{
+            //         let orderID 
+            //         if(orders.length > 0)
+            //         {
+            //             orderID = orders[orders.length-1].orderId
+            //         }
+            //         else{
+            //             orderID = 1
+            //         }
+            //         OLI.orderId = orderID
+            //         console.log(OLI.orderId)
+            //         handleOLIPost(OLI)
+            //     })
+            // })
             //hide login form and redirect to thank you page
             document.querySelector('.login-form').style.display = 'none';
             window.location.href = 'others.html'
@@ -132,6 +133,10 @@ function makeOLI(plants,tools){
         OLIs.push(OLI)
     })
     console.log(OLIs[0])
+}
+function saveOLIs(){
+    let OLIString = JSON.stringify(OLIs)
+    localStorage.setItem('OLIs',OLIString)
 }
 
 function getPlantId(plants,item){
@@ -168,10 +173,6 @@ function getToolId(tools,item){
     }
 }
 
-function getOrderId(){
-
-}
-
 async function handleOrderPost(order){
     console.log("inside handle post")
     
@@ -193,20 +194,20 @@ async function handleOrderPost(order){
     // window.location.reload(true)
 }
 
-async function handleOLIPost(OLI){
-    console.log("inside handle post")
+// async function handleOLIPost(OLI){
+//     console.log("inside handle post")
 
-    console.log(OLI)
+//     console.log(OLI)
 
-    await fetch(oLIURL, {
-        method: "POST",
-        body: JSON.stringify(OLI),
-        headers: {
-          "Content-type": "application/json; charset=UTF-8"
-        }
-    })
-    // window.location.reload(true)
-}
+//     await fetch(oLIURL, {
+//         method: "POST",
+//         body: JSON.stringify(OLI),
+//         headers: {
+//           "Content-type": "application/json; charset=UTF-8"
+//         }
+//     })
+//     // window.location.reload(true)
+// }
 
 function clearFields(){
     document.getElementById('username').innerHTML = ' '
