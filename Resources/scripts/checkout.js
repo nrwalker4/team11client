@@ -88,24 +88,7 @@ function login(){
                 username: result.username
             }
             handleOrderPost(order)
-
-            // //generate OLIs and add
-            // getOrders().then(function(orders){
-            //     OLIs.forEach(OLI =>{
-            //         let orderID 
-            //         if(orders.length > 0)
-            //         {
-            //             orderID = orders[orders.length-1].orderId
-            //         }
-            //         else{
-            //             orderID = 1
-            //         }
-            //         OLI.orderId = orderID
-            //         console.log(OLI.orderId)
-            //         handleOLIPost(OLI)
-            //     })
-            // })
-            //hide login form and redirect to thank you page
+            
             document.querySelector('.login-form').style.display = 'none';
             window.location.href = 'others.html'
         }

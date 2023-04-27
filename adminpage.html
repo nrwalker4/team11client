@@ -45,6 +45,44 @@
         <div id="adminTable"></div>
 	    </div>
 
+      <div id="manager-add">
+        <div id="manager-buttons">
+          <button onclick="addAdmin()" type="submit">Create Admin</button>
+        </div>
+
+        <div id="plant-add">
+
+        </div>
+
+        <div id="tool-add">
+
+        </div>
+
+        <div class="admin-add" style="display: none">
+
+            <label><input id="aFName" type="text" class="form-control" placeholder="First Name" aria-label="First Name">First Name</label>
+            <label><input id="aLName" type="text" class="form-control" placeholder="Last Name" aria-label="Last Name">Last Name</label>
+            <label><input id="aEmail" type="email" class="form-control"  placeholder="name@example.com">Email</label>
+            <label><input id="aUsername" type="text" class="form-control" placeholder="Username" aria-label="Username">Username</label>
+            <label><input id="aPassword" type="password" class="form-control" placeholder="Password" aria-label="Password">Password</label>
+
+            <button onclick="handleAddAdmin()" type="submit">Add Admin</button>
+
+        </div>
+
+      </div>
+
+      <div id="manager-stats">
+        <h1>All Users</h1>
+        <div id="userTable"></div>
+        <h1>Form Results</h1>
+        <div id="formTable"></div>
+        <h1>Orders</h1>
+        <div id="ordersTable"></div>
+        <h1>Stats</h1>
+        <div id="stats"></div>
+      </div>
+
 	  </div>
   </main>
   <footer>

@@ -6,6 +6,8 @@ function handleOnLoad(){
   plantTable()
   toolTable()
   adminTable()
+  // userTable()
+  // orderTable()
 }
 
 async function getUsers(){
@@ -24,6 +26,13 @@ async function getPlants(){
 
 async function getTools(){
   let response = await fetch('http://localhost:5138/api/Tool')
+  let data = await response.json()
+  console.log(data)
+  return data
+}
+
+async function getOrders(){
+  let response = await fetch('http://localhost:5138/api/Order')
   let data = await response.json()
   console.log(data)
   return data
@@ -169,18 +178,18 @@ function plantTable(){
                 console.log('inside editButton')
                 let updatedPlant = {
                     plantId: plant.plantId,
-                    plantName: prompt("Plant Name: ","N/A"),
-                    plantType: prompt("Plant Type: ", "N/A"), //pick category
-                    lifespan: prompt("Lifespan: ", "N/A"),
-                    indoorOutdoor: prompt("Indoor/Outdoor: ", "N/A"), //pick one or other
-                    sunExposure: '', //pick category
-                    soil: '', //pick category
-                    wateringFreq: prompt("Watering Frequency: ", "N/A"),
-                    externalLink: prompt("External Link: ", "N/A"),
-                    imageLink: prompt("Image Link: ", "N/A"),
-                    price: prompt("Price: ", "0.99"),
-                    plantDescription: prompt("Description: ", "N/A"),
-                    inStock: prompt("Quantity: , 50"),
+                    plantName: prompt("Plant Name: ",plant.plantName),
+                    plantType: prompt("Plant Type: ", plant.plantType), //pick category
+                    lifespan: prompt("Lifespan: ", plant.lifespan),
+                    indoorOutdoor: prompt("Indoor/Outdoor: ", plant.indoorOutdoor), //pick one or other
+                    sunExposure: plant.sunExposure, //pick category
+                    soil: plant.soil, //pick category
+                    wateringFreq: prompt("Watering Frequency: ", plant.wateringFreq),
+                    externalLink: plant.externalLink,
+                    imageLink: plant.imageLink,
+                    price: prompt("Price: ", plant.price),
+                    plantDescription: prompt("Description: ", plant.plantDescription),
+                    inStock: prompt("Quantity: ", plant.inStock),
                     deleted: plant.deleted
                 }
                 console.log(updatedPlant.plantName)
@@ -301,11 +310,11 @@ function toolTable(){
                 console.log('inside editButton')
                 let updatedTool = {
                     toolId: tool.toolId,
-                    toolName: prompt("Tool Name: ","N/A"),
-                    imageLink: prompt("Image Link: ", "N/A"),
-                    price: prompt("Price: ", "0.99"),
-                    toolDescription: prompt("Description: ", "N/A"),
-                    inStock: prompt("Quantity: , 50"),
+                    toolName: prompt("Tool Name: ",tool.toolName),
+                    imageLink: tool.imageLink,
+                    price: prompt("Price: ", tool.price),
+                    toolDescription: prompt("Description: ", tool.toolDescription),
+                    inStock: prompt("Quantity: ",tool.inStock),
                     deleted: tool.deleted
                 }
                 console.log(updatedTool.toolName)
@@ -393,9 +402,16 @@ function adminTable(){
             delButton.className = 'btn btn-outline-danger'
             delButton.addEventListener('click',function(){
                 console.log('inside delButton')
-                let deleteId = user.username
-                console.log(deleteId)
-                handleAdminDelete(username)
+                let updatedAdmin = {
+                  username: user.username,
+                  userPassword: user.userPassword,
+                  email: user.email,
+                  firstName: user.firstName,
+                  lastName: user.lastName,
+                  isAdmin: false,
+                  deleted: false
+                }
+                handleAdminPut(updatedAdmin)
             })
             delButton.innerHTML = 'Remove Admin'
             td4.appendChild(delButton)
@@ -444,7 +460,8 @@ async function handleToolPut(tool){
 async function handlePlantDelete(plantID){
   console.log("inside handle delete")
 
-  const deleteUrl = plantURL + "/" + plantID
+  let plantUrl = 'http://localhost:5138/api/Plant'
+  let deleteUrl = plantUrl + "/" + plantID
 
   console.log(plantID)
 
@@ -455,13 +472,14 @@ async function handlePlantDelete(plantID){
       }
   })
 
-  // window.location.reload(true)
+  window.location.reload(true)
 }
 
 async function handleToolDelete(toolID){
   console.log("inside handle delete")
 
-  const deleteUrl = toolURL + "/" + toolID
+  let toolUrl = 'http://localhost:5138/api/Tool'
+  let deleteUrl = toolUrl + "/" + toolID
 
   console.log(toolID)
 
@@ -472,13 +490,14 @@ async function handleToolDelete(toolID){
       }
   })
 
-  // window.location.reload(true)
+  window.location.reload(true)
 }
 
 async function handleAdminDelete(username){
   console.log("inside handle delete")
 
-  const deleteUrl = userURL + "/" + username
+  let userURL = 'http://localhost:5138/api/User'
+  let deleteUrl = userURL + "/" + username
 
   console.log(username)
 
@@ -489,8 +508,30 @@ async function handleAdminDelete(username){
       }
   })
 
+  window.location.reload(true)
+}
+
+async function handleAdminPut(admin){
+  console.log("inside handle put")
+
+  let userURL = 'http://localhost:5138/api/User'
+  let putUrl = userURL + "/" + admin.username
+
+  console.log(admin.username)
+
+  await fetch(putUrl, {
+      method: "PUT",
+      body: JSON.stringify(admin),
+      headers: {
+      "Content-type": "application/json; charset=UTF-8"
+      }
+  })
+
   // window.location.reload(true)
 }
+
+
+//STILL NEED TO DO THIS
 
 async function handlePlantPost(plant){
   console.log("inside handle post")
@@ -506,7 +547,7 @@ async function handlePlantPost(plant){
         "Content-type": "application/json; charset=UTF-8"
       }
   })
-  // window.location.reload(true)
+  window.location.reload(true)
 }
 
 async function handleToolPost(tool){
@@ -523,7 +564,7 @@ async function handleToolPost(tool){
         "Content-type": "application/json; charset=UTF-8"
       }
   })
-  // window.location.reload(true)
+  window.location.reload(true)
 }
 
 async function handleUserPost(user){
@@ -540,5 +581,95 @@ async function handleUserPost(user){
         "Content-type": "application/json; charset=UTF-8"
       }
   })
-  // window.location.reload(true)
+  window.location.reload(true)
+}
+
+function userTable(){
+  getUsers().then(function(users){
+    let table = document.createElement('table')
+
+    let thead = table.createTHead()
+    thead.className = 'table-light'
+    let row = thead.insertRow()
+
+    let th = document.createElement('th')
+    th.setAttribute('colspan', '1');
+    let text = document.createTextNode('Name')
+    th.appendChild(text)
+    row.appendChild(th)
+
+    let th2 = document.createElement('th')
+    th2.setAttribute('colspan', '1');
+    let text2 = document.createTextNode('Email')
+    th2.appendChild(text2)
+    row.appendChild(th2)
+
+    let th3 = document.createElement('th')
+    th3.setAttribute('colspan', '1');
+    let text3 = document.createTextNode('Username')
+    th3.appendChild(text3)
+    row.appendChild(th3)
+
+    //BODY
+    let tbody = table.createTBody()
+    users.forEach(function(user){
+        if(user.deleted === false ){ //&& user.isAdmin === false
+          let dataRow = tbody.insertRow()
+
+          let td = document.createElement('td')
+          let text = document.createTextNode(user.firstName + ' ' + user.lastName)
+          td.appendChild(text)
+          dataRow.appendChild(td)
+
+          let td2 = document.createElement('td')
+          let text2 = document.createTextNode(user.email)
+          td2.appendChild(text2)
+          dataRow.appendChild(td2)
+
+          let td3 = document.createElement('td')
+          let text3 = document.createTextNode(user.username)
+          td3.appendChild(text3)
+          dataRow.appendChild(td3)
+        }
+    })
+    document.getElementById('userTable').appendChild(table)
+})}
+
+function handleAddAdmin(){
+
+  let fName = document.getElementById('aFName').value
+  let lName = document.getElementById('aLName').value
+  let email = document.getElementById('aEmail').value
+  let username = document.getElementById('aUsername').value
+  let password = document.getElementById('aPassword').value
+
+  //something to validate they didn't leave anything blank & email is proper format
+  //and that username doesn't already exist
+
+  let newAdmin = {
+      username: username,
+      userPassword: password,
+      email: email,
+      firstName: fName,
+      lastName: lName,
+      isAdmin: false,
+      deleted: false
+  }   
+
+  console.log(newAdmin)
+
+  handleUserPost(newAdmin)
+}
+
+
+function addAdmin(){
+  document.querySelector('.admin-add').style.display = 'block';
+}
+
+function addPlant(){
+
+}
+
+function addTool(){
+
 }

@@ -115,6 +115,7 @@ body, h1, h2, h3, h4, h5, h6, p, ul, li, form, input, button {
     padding: 10px;
     text-align: center;
   }
+
   /* Style the container for the plant information cards */
 .container {
     max-width: 1200px;

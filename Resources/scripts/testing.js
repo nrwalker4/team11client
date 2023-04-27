@@ -34,7 +34,7 @@ function login(){
 
             }
             else{
-                console.log('Go fuck yourself')
+                
             }
             console.log(user)
             console.log(password)

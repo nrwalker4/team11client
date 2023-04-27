@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Smart Gardening Association</title>
+  <link rel="stylesheet" href="./Resources/styles/index.css">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <script src="./Resources/scripts/admin.js"></script>
+</head>
+  <header>
+    <nav>
+      <img src="./Resources/logo/Green Circle Nature Farm Organic Leaf Garden Landscaping Logo (3).png" alt="Smart Gardening Association"></img>
+      <h1>Smart Gardening Association</h1>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="info.html">Product Info</a></li>
+        <li><a href="form.html">Plant Finder</a></li>
+        <li><a href="shop.html">Shop</a></li>
+        <!-- <li><a href="admin.html">Admin Login</a></li> -->
+      </ul>
+    </nav>
+  </header>
+<body>
+  <main>
+      <div class="new-account" >
+        <div class="create-account">
+
+            <label><input id="newFName" type="text" class="form-control" placeholder="First Name" aria-label="First Name">First Name</label>
+            <label><input id="newLName" type="text" class="form-control" placeholder="Last Name" aria-label="Last Name">Last Name</label>
+            <label><input id="newEmail" type="email" class="form-control"  placeholder="name@example.com">Email</label>
+            <label><input id="newUsername" type="text" class="form-control" placeholder="Username" aria-label="Username">Username</label>
+            <label><input id="newPassword" type="password" class="form-control" placeholder="Password" aria-label="Password">Password</label>
+
+            <button onclick="handleOnClick()" type="submit">Create Account</button>
+        </div>
+      </div>
+  </main>
+    <footer>
+        <p>Smart Gardening Association | 1234 Main Street | Anytown, USA 12345 | 555-555-5555 | </p>
+        <a class="admin" href="./admin.html"><p>Admin</p></a>
+    </footer>
+    <script src="./Resources/scripts/createaccount.js"></script>
+</body>
+</html>
