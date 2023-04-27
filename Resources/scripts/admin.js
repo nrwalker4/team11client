@@ -1123,7 +1123,7 @@ function handleAddAdmin(){
       email: email,
       firstName: fName,
       lastName: lName,
-      isAdmin: false,
+      isAdmin: true,
       deleted: false
   }   
 
