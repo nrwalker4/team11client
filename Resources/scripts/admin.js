@@ -445,6 +445,8 @@ function plantTable(){
             let image = document.createElement('img')
               image.src = plant.imageLink
               image.alt = plant.plantName
+              image.width = 100
+              image.height = 100
             td2.appendChild(image)
             dataRow.appendChild(td2)
 
@@ -577,6 +579,8 @@ function toolTable(){
             let image = document.createElement('img')
               image.src = tool.imageLink
               image.alt = tool.toolName
+              image.width = 100
+              image.height = 100
             td2.appendChild(image)
             dataRow.appendChild(td2)
 
@@ -888,7 +892,9 @@ function orderTable(OLIs){
         dataRow.appendChild(td)
 
         let td2 = document.createElement('td')
-        let text2 = document.createTextNode(order.orderDate)
+        let d = new Date
+        let dateFix = d.toLocaleDateString(order.orderDate)
+        let text2 = document.createTextNode(dateFix)
         td2.appendChild(text2)
         dataRow.appendChild(td2)
 
@@ -1169,10 +1175,10 @@ function handleAddPlant(){
 
 function handleAddTool(){
 
-  let tName = document.getElementById('pName').value
-  let tPrice = document.getElementById('pPrice').value
-  let tDescription = document.getElementById('pDescription').value
-  let tStock = document.getElementById('pStock').value
+  let tName = document.getElementById('tName').value
+  let tPrice = document.getElementById('tPrice').value
+  let tDescription = document.getElementById('tDescription').value
+  let tStock = document.getElementById('tStock').value
 
   let newTool = {
     toolId: -1,

@@ -25,7 +25,7 @@ async function fetchTools() {
         </div>
         <div class="text-wrapper"> 
           <h3>${tool.toolName}</h3>
-          <p>${tool.description}</p>
+          <p>${tool.toolDescription}</p>
       `;
       toolsContainer.appendChild(toolElement);
     });
