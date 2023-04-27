@@ -406,30 +406,6 @@ function plantTable(){
     th7.appendChild(text7)
     row.appendChild(th7)
 
-    // //add button
-    // let th7 = document.createElement('th')
-    // th7.setAttribute('colspan', '1');
-    // let addPlant = document.createElement('button')
-    // addPlant.type = 'button'
-    // addPlant.className = 'btn btn-primary'
-    // addPlant.addEventListener('click',function(){
-    //     console.log("inside add button")
-    //     let newID = getNewID()
-    //     let newPlant={
-    //         plantId: -1,
-    //         plantName: prompt("Song Title: ","N/A"),
-    //         plantType: prompt("Song Artist: ","N/A"),
-    //         lifespan: "",
-    //         indoorOutdoor: false,
-    //         deleted: false
-    //     }
-    //     console.log(newSong.title)
-    //     handlePost(newSong)
-    // })
-    // addSong.innerHTML = 'Add Song'
-    // th7.appendChild(addSong)
-    // row.appendChild(th7)
-
     //body of table
     let tbody = table.createTBody()
     plants.forEach(function(plant){
@@ -479,11 +455,11 @@ function plantTable(){
                     plantType: prompt("Plant Type: ", plant.plantType), //pick category
                     lifespan: prompt("Lifespan: ", plant.lifespan),
                     indoorOutdoor: prompt("Indoor/Outdoor: ", plant.indoorOutdoor), //pick one or other
-                    sunExposure: plant.sunExposure, //pick category
-                    soil: plant.soil, //pick category
+                    sunExposure: prompt("Sun Exposure: ",plant.sunExposure), //pick category
+                    soil: prompt("Soil: ",plant.soil), //pick category
                     wateringFreq: prompt("Watering Frequency: ", plant.wateringFreq),
-                    externalLink: plant.externalLink,
-                    imageLink: plant.imageLink,
+                    externalLink: prompt("External Link: ",plant.externalLink),
+                    imageLink: prompt("Image Link: ",plant.imageLink),
                     price: prompt("Price: ", plant.price),
                     plantDescription: prompt("Description: ", plant.plantDescription),
                     inStock: prompt("Quantity: ", plant.inStock),
@@ -610,7 +586,7 @@ function toolTable(){
                 let updatedTool = {
                     toolId: tool.toolId,
                     toolName: prompt("Tool Name: ",tool.toolName),
-                    imageLink: tool.imageLink,
+                    imageLink: prompt("Image Link: ",tool.imageLink),
                     price: prompt("Price: ", tool.price),
                     toolDescription: prompt("Description: ", tool.toolDescription),
                     inStock: prompt("Quantity: ",tool.inStock),
