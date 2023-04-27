@@ -6,8 +6,13 @@ function handleOnLoad(){
   plantTable()
   toolTable()
   adminTable()
-  // userTable()
+  userTable()
   // orderTable()
+}
+
+function plantTableClick(){
+  document.querySelector('.plantTable').style.display = 'block';
+  // plantTable()
 }
 
 async function getUsers(){

@@ -26,7 +26,11 @@
 <body onload="handleOnLoad()">
   <main>
     <div class="manager-tab">
-        <!-- Manager information goes here -->
+      <div id="manager-actions">
+        <button onclick="plantTableClick()" type="submit">Manage Plants</button>
+        <button onclick="toolTableClick()" type="submit">Manage Tools</button>
+      
+      </div>
     </div>
       
       <!-- <div class="login-form">
@@ -35,14 +39,20 @@
 		
 
         <button onclick="login()">Login</button> -->
-      
+
       <div id="manager-page" > 
-        <h1>Plant Manager</h1>
-        <div id="plantTable"></div>
-        <h1>Tool Manager</h1>
-        <div id="toolTable"></div>
-        <h1>Admin Manager</h1>
-        <div id="adminTable"></div>
+        
+        <div class="plantTable" id="plantTable" style="display: none">
+          <h1>Plant Manager</h1>
+        </div>
+        
+        <div id="toolTable">
+          <h1>Tool Manager</h1>
+        </div>
+        
+        <div id="adminTable">
+          <h1>Admin Manager</h1>
+        </div>
 	    </div>
 
       <div id="manager-add">
@@ -88,7 +98,6 @@
   <footer>
     <p>Smart Gardening Association | 1234 Main Street | Anytown, USA 12345 | 555-555-5555 | </p>
     <a href="./admin.html"><p>Admin</p></a>
-    <!-- <a href="mailto: sga@smartgardening.com"></a> -->
   </footer>
   <script src="./Resources/scripts/admin.js"></script>
 </body>
