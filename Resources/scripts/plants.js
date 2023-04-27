@@ -18,7 +18,7 @@ async function fetchPlants() {
   function renderPlants(plants) {
     console.log(plants)
     const plantsContainer = document.getElementById('plants-row'); // Replace with the ID of the container element on your webpage where you want to display the plants
-    plantsContainer.innerHTML = '';
+    plantsContainer.innerHTML = ' ';
   
     plants.forEach(plant => {
       const plantElement = document.createElement('div');
@@ -150,8 +150,8 @@ async function fetchPlants() {
   }
   
   // Add event listener to submit order button
-  const submitOrderButton = document.getElementById('submit-order');
-  submitOrderButton.addEventListener('click', submitOrder);
+  // const submitOrderButton = document.getElementById('submit-order');
+  // submitOrderButton.addEventListener('click', submitOrder);
   
   // Fetch plants data and render on webpage on page load
   window.addEventListener('DOMContentLoaded', async () => { // Changed 'load' to 'DOMContentLoaded' event for better performance

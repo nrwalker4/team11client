@@ -145,7 +145,7 @@ function plantTable(){
             dataRow.appendChild(td2)
 
             let td3 = document.createElement('td')
-            let text3 = document.createTextNode(plant.description)
+            let text3 = document.createTextNode(plant.plantDescription)
             td3.appendChild(text3)
             dataRow.appendChild(td3)
 
@@ -179,7 +179,7 @@ function plantTable(){
                     externalLink: prompt("External Link: ", "N/A"),
                     imageLink: prompt("Image Link: ", "N/A"),
                     price: prompt("Price: ", "0.99"),
-                    description: prompt("Description: ", "N/A"),
+                    plantDescription: prompt("Description: ", "N/A"),
                     inStock: prompt("Quantity: , 50"),
                     deleted: plant.deleted
                 }
@@ -277,7 +277,7 @@ function toolTable(){
             dataRow.appendChild(td2)
 
             let td3 = document.createElement('td')
-            let text3 = document.createTextNode(tool.description)
+            let text3 = document.createTextNode(tool.toolDescription)
             td3.appendChild(text3)
             dataRow.appendChild(td3)
 
@@ -304,7 +304,7 @@ function toolTable(){
                     toolName: prompt("Tool Name: ","N/A"),
                     imageLink: prompt("Image Link: ", "N/A"),
                     price: prompt("Price: ", "0.99"),
-                    description: prompt("Description: ", "N/A"),
+                    toolDescription: prompt("Description: ", "N/A"),
                     inStock: prompt("Quantity: , 50"),
                     deleted: tool.deleted
                 }

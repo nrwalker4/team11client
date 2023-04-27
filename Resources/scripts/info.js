@@ -26,7 +26,7 @@ async function fetchPlants() {
         </div>
         <div class="text-wrapper"> 
           <h3>${plant.plantName}</h3>
-          <p>${plant.description}</p>
+          <p>${plant.plantDescription}</p>
           <p>Plant Type: ${plant.plantType}</p>
           <p>Indoor/Outdoor: ${plant.indoorOutdoor}</p>
           <a href="${plant.externalLink}" target="_blank">Read More</a>

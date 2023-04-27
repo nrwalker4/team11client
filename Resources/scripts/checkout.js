@@ -194,21 +194,6 @@ async function handleOrderPost(order){
     // window.location.reload(true)
 }
 
-// async function handleOLIPost(OLI){
-//     console.log("inside handle post")
-
-//     console.log(OLI)
-
-//     await fetch(oLIURL, {
-//         method: "POST",
-//         body: JSON.stringify(OLI),
-//         headers: {
-//           "Content-type": "application/json; charset=UTF-8"
-//         }
-//     })
-//     // window.location.reload(true)
-// }
-
 function clearFields(){
     document.getElementById('username').innerHTML = ' '
     document.getElementById('password').innerHTML = ' '

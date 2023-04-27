@@ -13,7 +13,6 @@ async function handleOnLoad(){
     console.log(orders)
     matchOLI(orders)
     updateStock(plants,tools,OLIs)
-    // 
 }
 
 function getUser(){
@@ -84,11 +83,28 @@ async function handlePlantPut(plant){
     let putUrl = plantURL + '/' + plant.plantId
     console.log("inside handle post")
     
-    console.log(plant)
+    let putPlant = {
+      plantId: plant.plantId,
+      plantName: plant.plantName,
+      plantType: plant.plantType,
+      lifespan: plant.lifespan,
+      indoorOutdoor: plant.indoorOutdoor,
+      sunExposure: plant.sunExposure,
+      soil: plant.soil,
+      wateringFreq: plant.wateringFreq,
+      externalLink: plant.externalLink,
+      imageLink: plant.imageLink,
+      price: plant.price,
+      plantDescription: plant.plantDescription,
+      inStock: plant.inStock,
+      deleted: plant.deleted
+    }
+
+    console.log(putPlant)
 
     await fetch(putUrl, {
         method: "PUT",
-        body: JSON.stringify(plant),
+        body: JSON.stringify(putPlant),
         headers: {
           "Content-type": "application/json; charset=UTF-8"
         }
@@ -99,12 +115,22 @@ async function handlePlantPut(plant){
 async function handleToolPut(tool){
     let putUrl = toolURL + '/' + tool.toolId
     console.log("inside handle post")
+
+    let putTool = {
+      toolId: tool.toolId,
+      toolName: tool.toolName,
+      inStock: tool.inStock,
+      price: tool.price,
+      toolDescription: tool.toolDescription,
+      imageLink: tool.imageLink,
+      deleted: tool.deleted
+    }
     
-    console.log(tool)
+    console.log(putTool)
 
     await fetch(putUrl, {
         method: "PUT",
-        body: JSON.stringify(tool),
+        body: JSON.stringify(putTool),
         headers: {
           "Content-type": "application/json; charset=UTF-8"
         }
@@ -133,6 +159,7 @@ function updateStock(plants,tools,OLIs){
         if(OLI.plantId != -1){
            let item = plants.find(plant => plant.plantId === OLI.plantId)
            item.inStock -= OLI.itemQty
+           console.log(item.inStock)
            handlePlantPut(item)
         }
         else{
@@ -141,7 +168,6 @@ function updateStock(plants,tools,OLIs){
            handleToolPut(item)
         }
     })
-    
 }
 
 function clearStorage(){
