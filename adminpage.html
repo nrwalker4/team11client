@@ -32,6 +32,19 @@
       <div id="manager-actions">
         <button onclick="plantTableClick()" type="submit">Manage Plants</button>
         <button onclick="toolTableClick()" type="submit">Manage Tools</button>
+        <button onclick="adminTableClick()" type="submit">Manage Admins</button>
+
+        <div id="manager-buttons">
+          <button onclick="addPlant()" type="submit">Create Plant</button>
+          <button onclick="addTool()" type="submit">Create Tool</button>
+          <button onclick="addAdmin()" type="submit">Create Admin</button>
+        </div>
+
+        <div id="manager-views">
+          <button onclick="userTableClick()" type="submit">View Users</button>
+          <button onclick="formTableClick()" type="submit">View Forms</button>
+          <button onclick="orderTableClick()" type="submit">View Orders</button>
+        </div>
       
       </div>
     </div>
@@ -43,31 +56,45 @@
 
         <button onclick="login()">Login</button> -->
 
-      <div id="manager-page" > 
+        <div id="manager-page" > 
         
-        <div class="plantTable" id="plantTable" style="display: none">
-          <h1>Plant Manager</h1>
+          <div class="plantTable" id="plantTable" style="display: none">
+            <h1>Plant Manager</h1>
+          </div>
+          
+          <div class="toolTable" id="toolTable" style="display: none">
+            <h1>Tool Manager</h1>
+          </div>
+          
+          <div class="adminTable" id="adminTable" style="display: none">
+            <h1>Admin Manager</h1>
+          </div>
         </div>
-        
-        <div id="toolTable">
-          <h1>Tool Manager</h1>
-        </div>
-        
-        <div id="adminTable">
-          <h1>Admin Manager</h1>
-        </div>
-	    </div>
 
       <div id="manager-add">
-        <div id="manager-buttons">
-          <button onclick="addAdmin()" type="submit">Create Admin</button>
+
+        <div class="plant-add"style="display: none">
+
+            <label><input id="pName" type="text" class="form-control" placeholder="Plant Name" aria-label="Plant Name">Plant Name</label>
+            <label><input id="pType" type="text" class="form-control" placeholder="Plant Type" aria-label="Plant Type">Plant Type</label>
+            <label><input id="pLife" type="text" class="form-control" placeholder="Lifespan" aria-label="Lifespan">Lifespan</label>
+            <label><input id="pInOut" type="text" class="form-control" placeholder="Indoor/Outdoor" aria-label="Indoor/Outdoor">Location</label>
+            <label><input id="pSun" type="text" class="form-control" placeholder="Sun Exposure" aria-label="Sun Exposure">Sun Exposure</label>
+            <label><input id="pSoil" type="text" class="form-control" placeholder="Soil" aria-label="Soil">Soil</label>
+            <label><input id="pWater" type="text" class="form-control" placeholder="Watering Frequency" aria-label="Watering Frequency">Watering Frequency</label>
+            <label><input id="pPrice" type="number" class="form-control" placeholder="0.99" aria-label="Price">Price</label>
+            <label><input id="pDescription" type="text" class="form-control" placeholder="Description" aria-label="Description">Description</label>
+            <label><input id="pStock" type="number" class="form-control" placeholder="50" aria-label="Quantity">Quantity</label>
+
+            <button onclick="handleAddPlant()" type="submit">Add Plant</button>
         </div>
 
-        <div id="plant-add">
+        <div class="tool-add"style="display: none">
 
-        </div>
-
-        <div id="tool-add">
+            <label><input id="tName" type="text" class="form-control" placeholder="Tool Name" aria-label="Tool Name">Tool Name</label>
+            <label><input id="tPrice" type="number" class="form-control" placeholder="0.99" aria-label="Price">Price</label>
+            <label><input id="tDescription" type="text" class="form-control" placeholder="Description" aria-label="Description">Description</label>
+            <label><input id="tStock" type="number" class="form-control" placeholder="50" aria-label="Quantity">Quantity</label>
 
         </div>
 
@@ -86,14 +113,22 @@
       </div>
 
       <div id="manager-stats">
-        <h1>All Users</h1>
-        <div id="userTable"></div>
-        <h1>Form Results</h1>
-        <div id="formTable"></div>
-        <h1>Orders</h1>
-        <div id="ordersTable"></div>
-        <h1>Stats</h1>
-        <div id="stats"></div>
+        
+        <div class="userTable" id="userTable" style="display: none">
+          <h1>All Users</h1>
+        </div>
+        
+        <div class="formTable" id="formTable" style="display: none">
+          <h1>Form Results</h1>
+        </div>
+        
+        <div class="orderTable" id="orderTable" style="display: none">
+          <h1>Orders</h1>
+        </div>
+        
+        <div id="stats" style="display: none">
+          <h1>Stats</h1>
+        </div>
       </div>
 
 	  </div>
